@@ -5,7 +5,7 @@ import { Typography, Space } from 'antd';
 const { Text, Link } = Typography;
 const MyPDPatientDetails = props => {
   const patient = props.data;
-  //alert(JSON.stringify(data, null, '  '));
+
   return (
     <div>
       <Descriptions title="Patient Info">

@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 import { getPatient } from './reducers/patient-reducer';
+import { notification } from 'antd';
 
 export const DeletePatient = (props: RouteComponentProps<{ patient: string }>) => {
   const dispatch = useAppDispatch();
@@ -23,7 +24,11 @@ export const DeletePatient = (props: RouteComponentProps<{ patient: string }>) =
 
   const confirmDelete = event => {
     //dispatch(deleteUser(user.login));
-    alert('user deleted');
+    notification.success({
+      message: `Success`,
+      description: 'Patient deleted',
+      placement: 'bottomRight',
+    });
     handleClose(event);
   };
 

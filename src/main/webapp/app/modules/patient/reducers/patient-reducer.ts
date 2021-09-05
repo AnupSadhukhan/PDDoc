@@ -16,26 +16,13 @@ const initialState = {
   totalItems: 0,
 };
 
-// const apiUrl = 'api/users';
-// const adminUrl = 'api/admin/users';
 const url = 'http://localhost:8081/patients';
-
-// // Async Actions
-
-// export const getUsers = createAsyncThunk('userManagement/fetch_users', async ({ page, size, sort }: IQueryParams) => {
-//   const requestUrl = `${apiUrl}${sort ? `?page=${page}&size=${size}&sort=${sort}` : ''}`;
-//   return axios.get<IUser[]>(requestUrl);
-// });
 
 export const getPatients = createAsyncThunk('patientManagement/fetch_patients', async () => {
   const result = axios.get<PatientUser[]>(url);
 
   return result;
 });
-
-// export const getRoles = createAsyncThunk('userManagement/fetch_roles', async () => {
-//   return axios.get<any[]>(`api/authorities`);
-// });
 
 export const getPatient = createAsyncThunk(
   'userManagement/fetch_user',
@@ -82,17 +69,6 @@ export const updatePatient = createAsyncThunk(
   },
   { serializeError: serializeAxiosError }
 );
-
-// export const deleteUser = createAsyncThunk(
-//   'userManagement/delete_user',
-//   async (id: string, thunkAPI) => {
-//     const requestUrl = `${adminUrl}/${id}`;
-//     const result = await axios.delete<IUser>(requestUrl);
-//     thunkAPI.dispatch(getUsersAsAdmin({}));
-//     return result;
-//   },
-//   { serializeError: serializeAxiosError }
-// );
 
 export type PatientManagementState = Readonly<typeof initialState>;
 

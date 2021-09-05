@@ -11,7 +11,7 @@ const TreatmentSummaryCard = () => {
           <CardTitle tag="h5">Treatment Summary</CardTitle>
           <CardSubtitle tag="h6" className="mb-2 text-muted"></CardSubtitle>
 
-          <CardText> Your treatment is completed for today.</CardText>
+          <CardText> Your treatment is completed for today or no active program found for you.</CardText>
 
           <Button color="primary" tag={Link} to={`/`}>
             Back to Home

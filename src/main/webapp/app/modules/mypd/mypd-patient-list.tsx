@@ -74,7 +74,6 @@ export const MyPDPatientList = (props: RouteComponentProps<any>) => {
   const loading = useAppSelector(state => state.patientManagement.loading);
 
   const onRowClick = (data, e) => {
-    alert(JSON.stringify(data, null, '  '));
     props.history.push({
       pathname: '/mypd/mypd-details/' + data.id,
 

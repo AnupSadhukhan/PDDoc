@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { getUser, getRoles, updateUser, createUser, reset } from '../../administration/user-management/user-management.reducer';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 import { createPatient } from '../reducers/patient-reducer';
+import { notification } from 'antd';
 
 export const PatientForm = props => {
   const [name, setName] = useState('');
@@ -21,7 +22,6 @@ export const PatientForm = props => {
   const saveUser = e => {
     e.preventDefault();
 
-    alert(`Submitting...`);
     const mobileNo = parseInt(mobile, 10);
     const patient = {
       name,
@@ -32,7 +32,11 @@ export const PatientForm = props => {
       pulseRate,
     };
     dispatch(createPatient(patient));
-    alert(JSON.stringify(patient, null, '  '));
+    notification.success({
+      message: `Success`,
+      description: 'Patient Created Successfully',
+      placement: 'bottomRight',
+    });
     props.history.push('/patient/patient-list');
   };
 

@@ -1,14 +1,9 @@
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 import React, { useEffect } from 'react';
-import { Table } from 'reactstrap';
+import { Button, Table } from 'reactstrap';
 import { getLastSevenDaysTreatmentData } from '../reducers/my-treatment.reducer';
 
 const TreatmentSummaryList = ({ patientId }) => {
-  //  alert(JSON.stringify(props,null," "));
-  //  const {patientId} = props;
-  alert(patientId);
-  //alert()
-
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -16,10 +11,27 @@ const TreatmentSummaryList = ({ patientId }) => {
   }, [patientId]);
 
   const treatmentDataList = useAppSelector(state => state.mytreatment.treatmentDataList);
-  //const pr
+
+  const onClickGenerateReport = () => {
+    const api = 'http://localhost:8081/reports/treatment-summary/' + patientId;
+    const link = document.createElement('a');
+    link.href = api;
+    document.body.appendChild(link);
+
+    // Start download
+    link.click();
+
+    // Clean up and remove the link
+    link.parentNode.removeChild(link);
+  };
 
   return (
     <div>
+      <div>
+        <Button color="primary" className="btn float-right" onClick={onClickGenerateReport} disabled={treatmentDataList.length <= 0}>
+          Generate Report
+        </Button>
+      </div>
       <Table>
         <thead>
           <tr>

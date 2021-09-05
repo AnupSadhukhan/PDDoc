@@ -6,9 +6,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { getUser, getRoles, updateUser, createUser, reset } from './user-management.reducer';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
+import { notification } from 'antd';
 
 export const UserManagementUpdate = (props: RouteComponentProps<{ login: string }>) => {
-  alert(JSON.stringify(props, null, '  '));
   const [isNew] = useState(!props.match.params || !props.match.params.login);
   const dispatch = useAppDispatch();
 
@@ -31,10 +31,15 @@ export const UserManagementUpdate = (props: RouteComponentProps<{ login: string 
   const saveUser = values => {
     if (isNew) {
       dispatch(createUser(values));
+      notification.success({
+        message: `Success`,
+        description: 'User Account created',
+        placement: 'bottomRight',
+      });
     } else {
       dispatch(updateUser(values));
     }
-    alert(JSON.stringify(values, null, '  '));
+
     handleClose();
   };
 

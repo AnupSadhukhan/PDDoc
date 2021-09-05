@@ -16,7 +16,6 @@ const MyPDPatientProfile = props => {
     };
   }, [props.match.params.patient]);
 
-  //const patient= props.history.location.state;
   const patient = useAppSelector(state => state.patientManagement.patient);
   return patient != null ? (
     <div>

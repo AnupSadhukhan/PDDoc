@@ -1,4 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { notification } from 'antd';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 import { defaultProgramValue, Program } from 'app/shared/model/program.model';
 import React, { useEffect } from 'react';
@@ -18,14 +19,20 @@ const MyPDAddForm = props => {
   };
 
   const saveUser = (values: Program) => {
-    //
     if (patientId != null && patientId !== '' && patientId !== undefined) {
       values.patientId = patientId;
       dispatch(createProgram(values));
+      notification.success({
+        message: `Program saved successfully`,
+        placement: 'bottomRight',
+      });
     } else {
-      alert('can not create program');
+      notification.error({
+        message: `Sorry program not saved`,
+        placement: 'bottomRight',
+      });
     }
-    alert(JSON.stringify(values, null, '  '));
+
     handleClose();
   };
 

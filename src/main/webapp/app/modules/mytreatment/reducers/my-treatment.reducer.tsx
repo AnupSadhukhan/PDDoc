@@ -37,17 +37,6 @@ export const getLastSevenDaysTreatmentData = createAsyncThunk(
   { serializeError: serializeAxiosError }
 );
 
-// export const deleteUser = createAsyncThunk(
-//   'userManagement/delete_user',
-//   async (id: string, thunkAPI) => {
-//     const requestUrl = `${adminUrl}/${id}`;
-//     const result = await axios.delete<IUser>(requestUrl);
-//     thunkAPI.dispatch(getUsersAsAdmin({}));
-//     return result;
-//   },
-//   { serializeError: serializeAxiosError }
-// );
-
 export type MyPDState = Readonly<typeof initialState>;
 
 export const MyTreatmentSlice = createSlice({
@@ -67,12 +56,6 @@ export const MyTreatmentSlice = createSlice({
         state.loading = false;
         state.treatmentDataList = action.payload.data;
       });
-    //   .addMatcher(isFulfilled(createProgram), (state, action) => {
-    //     state.updating = false;
-    //     state.loading = false;
-    //     state.updateSuccess = true;
-    //     state.programs.push(action.payload.data);
-    //   })
   },
 });
 

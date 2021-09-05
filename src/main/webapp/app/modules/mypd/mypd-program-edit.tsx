@@ -1,4 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { notification } from 'antd';
 import { useAppDispatch } from 'app/config/store';
 import { Program } from 'app/shared/model/program.model';
 import React from 'react';
@@ -20,10 +21,17 @@ const MyPDEditForm = props => {
   const onClickUpdateProgram = (values: Program) => {
     if (patientId != null && patientId !== '' && patientId !== undefined) {
       dispatch(updateProgram(values));
+      notification.success({
+        message: `Program updated`,
+        placement: 'bottomRight',
+      });
     } else {
-      alert('can not update program');
+      notification.error({
+        message: `Sorry can not update program`,
+        placement: 'bottomRight',
+      });
     }
-    alert(JSON.stringify(values, null, '  '));
+
     handleClose();
   };
 

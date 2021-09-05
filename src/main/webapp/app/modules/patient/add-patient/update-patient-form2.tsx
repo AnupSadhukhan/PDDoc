@@ -22,7 +22,6 @@ export const UpdatePatientForm2 = (props: RouteComponentProps<{ patient: string 
   };
 
   const saveUser = values => {
-    alert(JSON.stringify(values, null, '  '));
     dispatch(updatePatient(values));
     handleClose();
   };
