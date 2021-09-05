@@ -1,4 +1,5 @@
 import { useAppDispatch, useAppSelector } from 'app/config/store';
+import TreatmentSuaryChart from 'app/shared/layout/chart/treatment-summary-chart';
 import React, { useEffect } from 'react';
 import TreatmentSummaryList from '../mytreatment/components/treatment-summary-list';
 import { getPatient, reset } from '../patient/reducers/patient-reducer';
@@ -21,11 +22,12 @@ const MyPDPatientProfile = props => {
     <div>
       <MyPDPatientDetails data={patient} props={props} />
       <hr />
-      <h6>Device Settings</h6>
+      <h4>Device Settings</h4>
       <MyPDProgram data={patient} props={props} />
       <hr />
-      <h6>Treatment summary of Last 7 days</h6>
+      <h4>Treatment summary of Last 7 days</h4>
       <TreatmentSummaryList patientId={patient.patID} />
+      <hr />
     </div>
   ) : (
     <span>Loading...</span>

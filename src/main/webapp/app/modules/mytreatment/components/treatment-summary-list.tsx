@@ -1,4 +1,5 @@
 import { useAppDispatch, useAppSelector } from 'app/config/store';
+import TreatmentSuaryChart from 'app/shared/layout/chart/treatment-summary-chart';
 import React, { useEffect } from 'react';
 import { Button, Table } from 'reactstrap';
 import { getLastSevenDaysTreatmentData } from '../reducers/my-treatment.reducer';
@@ -58,6 +59,9 @@ const TreatmentSummaryList = ({ patientId }) => {
           })}
         </tbody>
       </Table>
+      <hr />
+      <h4>Chart Data</h4>
+      <TreatmentSuaryChart patientId={patientId} />
     </div>
   );
 };

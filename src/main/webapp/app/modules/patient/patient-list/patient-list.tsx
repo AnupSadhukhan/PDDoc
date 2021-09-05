@@ -72,16 +72,45 @@ export const PatientList = (props: RouteComponentProps<any>) => {
   const totalItems = useAppSelector(state => state.patientManagement.totalItems);
   const loading = useAppSelector(state => state.patientManagement.loading);
 
-  return (
-    <div>
-      <h2 id="user-management-page-heading" data-cy="userManagementPageHeading">
-        Patients
-        <div className="d-flex justify-content-end">
+  const [searchTerm, setSearchTerm] = useState('');
+  const [patientList, setPatientList] = useState(patients);
+  useEffect(() => {
+    if (searchTerm !== '' && patients.length > 0) {
+      const filteredPatientList = patients.filter(patient => {
+        return Object.values(patient).join().toLowerCase().includes(searchTerm.toLowerCase());
+      });
+      setPatientList(filteredPatientList);
+    } else {
+      setPatientList(patients);
+    }
+  }, [searchTerm, patients]);
+
+  /*
+      <div className="d-flex justify-content-end">
           <Button className="mr-2" color="info" onClick={handleSyncList} disabled={loading}>
             <FontAwesomeIcon icon="sync" spin={loading} /> Refresh List
           </Button>
         </div>
-      </h2>
+  */
+  return (
+    <div>
+      <h3 id="user-management-page-heading" data-cy="userManagementPageHeading">
+        Patients
+      </h3>
+      <div className="d-flex justify-content-end ui search">
+        <div className="ui icon input">
+          <input
+            type="text"
+            placeholder="Search"
+            className="prompt"
+            value={searchTerm}
+            onChange={e => {
+              setSearchTerm(e.target.value);
+            }}
+          />
+          <i className="search icon"></i>
+        </div>
+      </div>
       <Table responsive striped>
         <thead>
           <tr>
@@ -101,7 +130,7 @@ export const PatientList = (props: RouteComponentProps<any>) => {
           </tr>
         </thead>
         <tbody>
-          {patients.map((patient, i) => (
+          {patientList.map((patient, i) => (
             <tr id={patient.id} key={patient.id}>
               <td>{patient.patID}</td>
               <td>{patient.name}</td>

@@ -62,16 +62,23 @@ const PatientListReport = props => {
   const totalItems = useAppSelector(state => state.patientManagement.totalItems);
   const loading = useAppSelector(state => state.patientManagement.loading);
 
-  const modifiedPatient = patients.map(patient => {
-    return { ...patient, select: false };
-  });
-
   const [allChecked, setAllChecked] = useState(false);
-  const [allPatients, setPatients] = useState(modifiedPatient);
+  const [allPatients, setPatients] = useState(
+    patients.map(patient => {
+      return { ...patient, select: false };
+    })
+  );
   const [ids, setIds] = useState([]);
   useEffect(() => {
     getPatientUsers();
   }, []);
+
+  useEffect(() => {
+    const modifiedPatient = patients.map(patient => {
+      return { ...patient, select: false };
+    });
+    setPatients(modifiedPatient);
+  }, [patients]);
 
   const handleReset = () => {
     setPatients(
@@ -82,6 +89,22 @@ const PatientListReport = props => {
     setAllChecked(false);
     setIds([]);
   };
+
+  const [searchTerm, setSearchTerm] = useState('');
+  useEffect(() => {
+    if (searchTerm !== '' && patients.length > 0) {
+      const filteredPatientList = allPatients.filter(patient => {
+        return Object.values(patient).join().toLowerCase().includes(searchTerm.toLowerCase());
+      });
+      setPatients(filteredPatientList);
+    } else {
+      setPatients(
+        patients.map(patient => {
+          return { ...patient, select: false };
+        })
+      );
+    }
+  }, [searchTerm, patients]);
 
   const api = 'http://localhost:8081/reports';
   const onClickHandler = e => {
@@ -118,6 +141,18 @@ const PatientListReport = props => {
   return (
     <div>
       <div>
+        <div className="ui icon input float-left">
+          <input
+            type="text"
+            placeholder="Search"
+            className="prompt"
+            value={searchTerm}
+            onChange={e => {
+              setSearchTerm(e.target.value);
+            }}
+          />
+          <i className="search icon"></i>
+        </div>
         <Button color="primary" className="btn float-right" onClick={onClickHandler} disabled={!allChecked && ids.length <= 0}>
           Generate Report
         </Button>
