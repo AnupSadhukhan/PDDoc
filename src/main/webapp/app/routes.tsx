@@ -14,6 +14,7 @@ import PrivateRoute from 'app/shared/auth/private-route';
 import ErrorBoundaryRoute from 'app/shared/error/error-boundary-route';
 import PageNotFound from 'app/shared/error/page-not-found';
 import { AUTHORITIES } from 'app/config/constants';
+import PatientForm from './modules/patient/add-patient/add-patient-form';
 
 const Account = Loadable({
   loader: () => import(/* webpackChunkName: "account" */ 'app/modules/account'),
@@ -22,6 +23,22 @@ const Account = Loadable({
 
 const Admin = Loadable({
   loader: () => import(/* webpackChunkName: "administration" */ 'app/modules/administration'),
+  loading: () => <div>loading ...</div>,
+});
+const Patient = Loadable({
+  loader: () => import(/* webpackChunkName: "patient" */ 'app/modules/patient'),
+  loading: () => <div>loading ...</div>,
+});
+const Report = Loadable({
+  loader: () => import(/* webpackChunkName: "patient" */ 'app/modules/report'),
+  loading: () => <div>loading ...</div>,
+});
+const MyPD = Loadable({
+  loader: () => import(/* webpackChunkName: "patient" */ 'app/modules/mypd'),
+  loading: () => <div>loading ...</div>,
+});
+const MyTreatment = Loadable({
+  loader: () => import(/* webpackChunkName: "patient" */ 'app/modules/mytreatment'),
   loading: () => <div>loading ...</div>,
 });
 
@@ -36,6 +53,10 @@ const Routes = () => {
         <ErrorBoundaryRoute path="/account/reset/request" component={PasswordResetInit} />
         <ErrorBoundaryRoute path="/account/reset/finish/:key?" component={PasswordResetFinish} />
         <PrivateRoute path="/admin" component={Admin} hasAnyAuthorities={[AUTHORITIES.ADMIN]} />
+        <PrivateRoute path="/patient" component={Patient} hasAnyAuthorities={[AUTHORITIES.ADMIN]} />
+        <PrivateRoute path="/report" component={Report} hasAnyAuthorities={[AUTHORITIES.ADMIN]} />
+        <PrivateRoute path="/mypd" component={MyPD} hasAnyAuthorities={[AUTHORITIES.ADMIN]} />
+        <PrivateRoute path="/my-treatment" component={MyTreatment} hasAnyAuthorities={[AUTHORITIES.USER]} />
         <PrivateRoute path="/account" component={Account} hasAnyAuthorities={[AUTHORITIES.ADMIN, AUTHORITIES.USER]} />
         <ErrorBoundaryRoute path="/" exact component={Home} />
         <PrivateRoute path="/" component={Entities} hasAnyAuthorities={[AUTHORITIES.USER]} />

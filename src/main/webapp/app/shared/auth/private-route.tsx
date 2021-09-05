@@ -17,7 +17,7 @@ export const PrivateRouteComponent = ({ component: Component, hasAnyAuthorities 
   const checkAuthorities = props =>
     isAuthorized ? (
       <ErrorBoundary>
-        <Component {...props} />
+        <Component patientId={account.login} {...props} />
       </ErrorBoundary>
     ) : (
       <div className="insufficient-authority">

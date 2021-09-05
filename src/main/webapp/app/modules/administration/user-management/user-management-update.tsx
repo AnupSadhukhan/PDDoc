@@ -8,6 +8,7 @@ import { getUser, getRoles, updateUser, createUser, reset } from './user-managem
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 export const UserManagementUpdate = (props: RouteComponentProps<{ login: string }>) => {
+  alert(JSON.stringify(props, null, '  '));
   const [isNew] = useState(!props.match.params || !props.match.params.login);
   const dispatch = useAppDispatch();
 
@@ -33,6 +34,7 @@ export const UserManagementUpdate = (props: RouteComponentProps<{ login: string 
     } else {
       dispatch(updateUser(values));
     }
+    alert(JSON.stringify(values, null, '  '));
     handleClose();
   };
 

@@ -10,9 +10,17 @@ import activate, { ActivateState } from 'app/modules/account/activate/activate.r
 import password, { PasswordState } from 'app/modules/account/password/password.reducer';
 import settings, { SettingsState } from 'app/modules/account/settings/settings.reducer';
 import passwordReset, { PasswordResetState } from 'app/modules/account/password-reset/password-reset.reducer';
+import patientManagement from 'app/modules/patient/reducers/patient-reducer';
+import report from 'app/modules/report/report.reducer';
+import mypd from 'app/modules/mypd/mypd.reducer';
+import mytreatment from 'app/modules/mytreatment/reducers/my-treatment.reducer';
 /* jhipster-needle-add-reducer-import - JHipster will add reducer here */
 
 const rootReducer = {
+  mytreatment,
+  mypd,
+  report,
+  patientManagement,
   authentication,
   applicationProfile,
   administration,

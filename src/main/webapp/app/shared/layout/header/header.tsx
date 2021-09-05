@@ -6,7 +6,8 @@ import { Navbar, Nav, NavbarToggler, Collapse } from 'reactstrap';
 import LoadingBar from 'react-redux-loading-bar';
 
 import { Home, Brand } from './header-components';
-import { AdminMenu, EntitiesMenu, AccountMenu } from '../menus';
+import { AdminMenu, EntitiesMenu, AccountMenu, PatientMenu, PatientReportMenu, MyTreatmentMenu } from '../menus';
+import MyPDMenu from '../menus/mypd';
 
 export interface IHeaderProps {
   isAuthenticated: boolean;
@@ -32,7 +33,7 @@ const Header = (props: IHeaderProps) => {
 
   return (
     <div id="app-header">
-      {renderDevRibbon()}
+      {/*renderDevRibbon()*/}
       <LoadingBar className="loading-bar" />
       <Navbar data-cy="navbar" dark expand="sm" fixed="top" className="jh-navbar">
         <NavbarToggler aria-label="Menu" onClick={toggleMenu} />
@@ -40,7 +41,12 @@ const Header = (props: IHeaderProps) => {
         <Collapse isOpen={menuOpen} navbar>
           <Nav id="header-tabs" className="ml-auto" navbar>
             <Home />
-            {props.isAuthenticated && <EntitiesMenu />}
+            {props.isAuthenticated && !props.isAdmin && <MyTreatmentMenu />}
+
+            {props.isAuthenticated && props.isAdmin && <PatientMenu />}
+            {props.isAuthenticated && props.isAdmin && <PatientReportMenu />}
+            {props.isAuthenticated && props.isAdmin && <MyPDMenu />}
+
             {props.isAuthenticated && props.isAdmin && (
               <AdminMenu showOpenAPI={props.isOpenAPIEnabled} showDatabase={!props.isInProduction} />
             )}

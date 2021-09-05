@@ -31,11 +31,21 @@ import { faUserPlus } from '@fortawesome/free-solid-svg-icons/faUserPlus';
 import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers';
 import { faUsersCog } from '@fortawesome/free-solid-svg-icons/faUsersCog';
 import { faWrench } from '@fortawesome/free-solid-svg-icons/faWrench';
+import { faCapsules } from '@fortawesome/free-solid-svg-icons';
+import { faClinicMedical } from '@fortawesome/free-solid-svg-icons';
+import { faChartLine } from '@fortawesome/free-solid-svg-icons';
+import { faFirstAid } from '@fortawesome/free-solid-svg-icons';
+import { faHeartbeat } from '@fortawesome/free-solid-svg-icons';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 
 export const loadIcons = () => {
   library.add(
+    faHeartbeat,
+    faFirstAid,
+    faCapsules,
+    faClinicMedical,
+    faChartLine,
     faArrowLeft,
     faAsterisk,
     faBan,

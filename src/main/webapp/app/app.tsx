@@ -1,6 +1,7 @@
 import 'react-toastify/dist/ReactToastify.css';
 import './app.scss';
 import 'app/config/dayjs.ts';
+import 'antd/dist/antd.css';
 
 import React, { useEffect } from 'react';
 import { Card } from 'reactstrap';

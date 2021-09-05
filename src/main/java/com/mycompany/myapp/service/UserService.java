@@ -121,7 +121,9 @@ public class UserService {
                 }
             );
         User newUser = new User();
+        System.out.println("######## PASSWORD : " + password + " #########");
         String encryptedPassword = passwordEncoder.encode(password);
+        System.out.println("######## ENCRYPTED PASSWORD : " + encryptedPassword + " #########");
         newUser.setLogin(userDTO.getLogin().toLowerCase());
         // new user gets initially a generated password
         newUser.setPassword(encryptedPassword);

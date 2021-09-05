@@ -1,0 +1,6 @@
+.mypdrow {
+  cursor: 'pointer';
+}
+.mypdrow:hover {
+  background-color: '#e0e0eb';
+}
