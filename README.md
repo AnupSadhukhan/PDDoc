@@ -1,6 +1,13 @@
-# myApp2
+# PD Doctor App
 
-This application was generated using JHipster 7.1.0, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v7.1.0](https://www.jhipster.tech/documentation-archive/v7.1.0).
+This is a basic app that simulate a Peritorial Dialysis Cycler that patients uses to do their daily dialysis at their home. I have build the web application.
+
+to Check Technologies used and main feature find ppt in my repo inside folder "info"
+
+I have used Jhipster to along with react and spring boot to build this full application.
+
+Another service backend code can be found in repo -> 
+
 
 ## Development
 
