@@ -2,11 +2,11 @@
 
 This is a basic app that simulate a Peritorial Dialysis Cycler that patients uses to do their daily dialysis at their home. I have build the web application.
 
-to Check Technologies used and main feature find ppt in my repo inside folder "info"
+to Check Technologies used and main feature find ppt in my repo inside folder [info/](info/)
 
 I have used Jhipster to along with react and spring boot to build this full application.
 
-Another service backend code can be found in repo -> 
+Another service backend code can be found in repo -> [renal_care](https://github.com/AnupSadhukhan/renal_care)
 
 
 ## Development
