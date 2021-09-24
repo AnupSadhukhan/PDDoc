@@ -9,6 +9,32 @@ I have used Jhipster to along with react and spring boot to build this full appl
 Another service backend code can be found in repo -> [renal_care](https://github.com/AnupSadhukhan/renal_care)
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Development
 
 Before you can build this project, you must install and configure the following dependencies on your machine:
