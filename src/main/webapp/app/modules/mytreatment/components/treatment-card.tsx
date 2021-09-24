@@ -22,7 +22,11 @@ const TreatmentCard = ({ props, program }) => {
               <li>Drain</li>
             </ul>
             Please connect solution line and click on start, we will take care of your treatment. To know about the process{' '}
-            <a href="https://renalcare.baxter.com/therapies/peritoneal-dialysis" rel="noreferrer" target="_blank">
+            <a
+              href="https://www.kidneyfund.org/kidney-disease/kidney-failure/treatment-of-kidney-failure/peritoneal-dialysis/"
+              rel="noreferrer"
+              target="_blank"
+            >
               click me
             </a>
             <br />

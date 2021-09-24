@@ -50,9 +50,9 @@ const TreatmentSuaryChart = ({ patientId }) => {
           <YAxis />
           <Tooltip />
           <Legend verticalAlign="top" height={36} />
-          <Bar dataKey="uf" fill="#cc0000" />
-          <Bar dataKey="fillAmount" fill="#82ca9d" />
-          <Bar dataKey="drainAmount" fill="#6666ff" />
+          <Bar name="Ultra Filtration" dataKey="uf" fill="#cc0000" />
+          <Bar name="Fill Amount (ml)" dataKey="fillAmount" fill="#82ca9d" />
+          <Bar name="Drain Amount (ml)" dataKey="drainAmount" fill="#6666ff" />
         </BarChart>
       ) : (
         <div>No data available</div>

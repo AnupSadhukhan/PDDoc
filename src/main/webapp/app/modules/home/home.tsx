@@ -17,8 +17,8 @@ export const Home = () => {
         <span className="hipster rounded" />
       </Col>
       <Col md="9">
-        <h2>Welcome to Baxter Sharesource</h2>
-        <p className="lead">We at Baxter provide PD solutions</p>
+        <h2>Welcome to PD Doc (PD Doctor)</h2>
+        <p className="lead">We at PDDoc provide PD solutions to patients</p>
         {account && account.login && (
           <div>
             <Alert color="success">You are logged in as user {account.login}.</Alert>
@@ -27,7 +27,7 @@ export const Home = () => {
         {
           <div>
             <p>
-              Baxter touches the lives of millions of people around the world every day. Our products and therapies can be found throughout
+              We touches the lives of millions of people around the world every day. Our products and therapies can be found throughout
               hospitals and clinics – from the ER to the OR, from the pharmacy to the ICU – as well as advancing patients’ care in their
               homes.
             </p>
