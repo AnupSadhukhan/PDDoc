@@ -1,6 +1,6 @@
 # PD Doctor App
 
-This is a basic app that simulate a Peritorial Dialysis Cycler that patients uses to do their daily dialysis at their home. I have build the web application.
+This is a basic app that simulate a Peritorial Dialysis Cycler that patients uses to do their daily dialysis at their home. I have built the web application.
 
 to Check Technologies used and main feature find ppt in my repo inside folder [info/](info/)
 
